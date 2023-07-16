@@ -25,13 +25,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      color="primary"
-      dark
-      src="clouds.jpg"
-      prominent
-      app
-    >
+    <v-app-bar color="primary" dark src="clouds.jpg" prominent app>
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -61,12 +55,16 @@
     <v-main>
       <!--  -->
       <router-view></router-view>
+      <snackbar></snackbar>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import Snackbar from "./components/Shared/Snackbar.vue";
+
 export default {
+  components: { Snackbar },
   data: () => ({
     drawer: null,
     items: [

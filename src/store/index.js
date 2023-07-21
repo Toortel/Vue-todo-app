@@ -19,10 +19,10 @@ export default new Vuex.Store({
     },
     addTask(state, newTaskTitle) {
       const nextId = state.tasks.length + 1;
-      state.tasks.push({ id: nextId, title: newTaskTitle, done: false });
+      state.tasks.unshift({ id: nextId, title: newTaskTitle, done: false });
     },
     deleteTask(state, taskId) {
-      state.tasks.splice((task) => task.id === taskId, 1);
+      state.tasks = state.tasks.filter((task) => task.id !== taskId);
     },
     showSnackbar(state, text) {
       let timeout = 0;
